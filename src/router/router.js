@@ -66,6 +66,46 @@ export const otherRouter = {
 
 // 作为Main组件的子页面展示并且在左侧菜单显示的路由写在appRouter里
 export const appRouter = [
+        //客户管理
+        {
+            path: '/menu_customer',
+            icon: 'android-sad',
+            title: '客户管理',
+            name: 'menu_customer',
+            component: Main,
+            children:[
+                {path:'customer',title:'客户管理',name:'customer',component: () => import('@/views/customer/customer.vue')},
+                {path:'contact',title:'联系人管理', name:'contact',component: () => import('@/views/customer/contact.vue')}
+            ]
+        },
+        //销售
+        {
+            path: '/menu_business',
+            icon: 'android-sad',
+            title: '销售',
+            name: 'menu_business',
+            component:Main,
+            children:[
+                {path:'quote',title:'报价单',name:'quote',component: () => import('@/views/business/quote.vue')},
+                {path:'contract',title:'订单',name:'contract',component: () => import('@/views/business/contract.vue')}
+            ]
+        },
+        // 财务
+        {
+            path:'/menu_finance',
+            icon: 'android-sad',
+            title: '财务',
+            name: 'menu_finance',
+            component:Main,
+            children:[
+                {path:'receivables',title:'应收款',name:'receivables',component:() => import('@/views/finance/receivables.vue')},
+                {path:'payables',title:'应付款',name:'payables',component: () => import('@/views/finance/payables.vue')},
+                {path:'receivingorder',title:'收款单',name:'receivingorder',component: () => import('@/views/finance/receivingorder.vue')},
+                {path:'paymentorder',title:'付款单',name:'paymentorder',component: () => import('@/views/finance/paymentorder.vue')}
+            
+            ]
+        },
+    // 权限管理菜单
     {
         path: '/access',
         icon: 'key',
@@ -76,6 +116,7 @@ export const appRouter = [
             { path: 'index', title: '权限管理', name: 'access_index', component: () => import('@/views/access/access.vue') }
         ]
     },
+    // 权限测试页
     {
         path: '/access-test',
         icon: 'lock-combination',
@@ -87,6 +128,7 @@ export const appRouter = [
             { path: 'index', title: '权限测试页', name: 'accesstest_index', access: 0, component: () => import('@/views/access/access-test.vue') }
         ]
     },
+    // 多语言切换
     {
         path: '/international',
         icon: 'earth',
@@ -97,6 +139,7 @@ export const appRouter = [
             { path: 'index', title: {i18n: 'international'}, name: 'international_index', component: () => import('@/views/international/international.vue') }
         ]
     },
+    // 组件
     {
         path: '/component',
         icon: 'social-buffer',
@@ -170,6 +213,7 @@ export const appRouter = [
             }
         ]
     },
+    // 表单编辑
     {
         path: '/form',
         icon: 'android-checkbox',
@@ -194,6 +238,7 @@ export const appRouter = [
 
     //     ]
     // },
+    // 表格
     {
         path: '/tables',
         icon: 'ios-grid-view',
@@ -208,6 +253,7 @@ export const appRouter = [
             { path: 'table2image', title: '表格转图片', name: 'table-to-image', icon: 'images', component: () => import('@/views/tables/table-to-image.vue') }
         ]
     },
+    // 高级路由
     {
         path: '/advanced-router',
         icon: 'ios-infinite',
@@ -219,6 +265,7 @@ export const appRouter = [
             { path: 'argument-page', title: '带参页面', name: 'argument-page', icon: 'android-send', component: () => import('@/views/advanced-router/argument-page.vue') }
         ]
     },
+    // 错误页面
     {
         path: '/error-page',
         icon: 'android-sad',
@@ -229,6 +276,7 @@ export const appRouter = [
             { path: 'index', title: '错误页面', name: 'errorpage_index', component: () => import('@/views/error-page/error-page.vue') }
         ]
     },
+    // 货运方案
     {
         path: '/solution',
         icon: 'android-sad',
